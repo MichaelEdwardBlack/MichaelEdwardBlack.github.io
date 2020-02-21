@@ -1,20 +1,12 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-
+import { HashRouter as Router, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Portfolio from './pages/portfolio';
 import Picolabs from './pages/portfolio/picolabs';
 import Wovyn from './pages/portfolio/picolabs/Wovyn';
 import Streetcred from './pages/portfolio/streetcred';
-// Dark #212121
-// Primary #996bf5
-// Secondary #de6bf5
 
 const dark = createMuiTheme({
   palette: {
@@ -43,34 +35,28 @@ const dark = createMuiTheme({
 
 function App() {
   return (
-    <Router>
       <ThemeProvider theme={dark}>
 
         <div>
           <Navbar />
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
-          <Switch>
-            <Route exact path="/">
-              <Home />
+          <Router basename="/">
+            <Route exact path="/" component={Home}>
             </Route>
-            <Route exact path="/portfolio">
-              <Portfolio />
+            <Route path="/portfolio" component={Portfolio}>
             </Route>
-            <Route exact path="/portfolio/picolabs">
+            <Route path="/picolabs" component={Picolabs}>
               <Picolabs />
             </Route>
-            <Route exact path="/portfolio/picolabs/wovyn">
-              <Wovyn />
+            <Route path="/wovyn" component={Wovyn}>
             </Route>
-            <Route exact path="/portfolio/streetcred">
-              <Streetcred />
+            <Route path="/streetcred" component={Streetcred}>
             </Route>
-          </Switch>
+          </Router>
         </div>
 
       </ThemeProvider>
-    </Router>
   );
 }
 

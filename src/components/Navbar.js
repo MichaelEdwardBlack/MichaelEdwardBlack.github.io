@@ -45,8 +45,8 @@ export default function Navbar() {
           open={Boolean(portfolioAnchorEl)}
           onClose={handlePortfolioClose}
         >
-          <MenuItem onClick={() => window.location.href = "/portfolio/picolabs"}>Picolabs</MenuItem>
-          <MenuItem onClick={() => window.location.href = "/portfolio/streetcred"}>Streetcred</MenuItem>
+          <MenuItem onClick={() => window.location.href = "/#/picolabs"}>Picolabs</MenuItem>
+          <MenuItem onClick={() => window.location.href = "/#/streetcred"}>Streetcred</MenuItem>
         </Menu>
 
       </Toolbar>

@@ -17,7 +17,7 @@ class Home extends React.Component {
           <Grid item xs={12}>
             <h1>Hello, I'm <span style={{color: "#996bf5"}}>Michael Black</span>.</h1>
             <h2>I'm a full-stack web developer</h2>
-            <Button variant="outlined" color="primary" href="/portfolio">
+            <Button variant="outlined" color="primary" href="/#/portfolio">
               View My Work
             </Button>
           </Grid>

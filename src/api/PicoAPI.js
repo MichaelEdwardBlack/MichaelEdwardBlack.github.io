@@ -1,4 +1,4 @@
-import Config from '../Config.json';
+import { config } from '../config.js';
 
 // HELPER FUNCTIONS
 const addParams = function(baseURL, params) {
@@ -16,12 +16,12 @@ const addParams = function(baseURL, params) {
 }
 
 const buildEventURL = function(eci, eid, domain, type, attrs) {
-  let baseURL =  `${Config.picolabs.protocol}://${Config.picolabs.host}/sky/event/${eci}/${eid}/${domain}/${type}`;
+  let baseURL =  `${config.picolabs.protocol}://${config.picolabs.host}/sky/event/${eci}/${eid}/${domain}/${type}`;
   return addParams(baseURL, attrs)
 }
 
 const buildQueryURL = function(eci, rid, funcName, params) {
-  let baseURL =  `${Config.picolabs.protocol}://${Config.picolabs.host}/sky/cloud/${eci}/${rid}/${funcName}`;
+  let baseURL =  `${config.picolabs.protocol}://${config.picolabs.host}/sky/cloud/${eci}/${rid}/${funcName}`;
   return addParams(baseURL, params);
 }
 // END HELPER FUNCTIONS

@@ -16,14 +16,14 @@ class Portfolio extends React.Component {
           <Grid container item xs={12}>
               <Grid item xs>
                 <h1>Pico Labs</h1>
-                <Button variant="outlined" color="primary" href="/#/picolabs">
+                <Button variant="outlined" color="primary" href="/#/portfolio/picolabs">
                   View
                 </Button>
               </Grid>
 
               <Grid item xs>
                 <h1>Streetcred</h1>
-                <Button variant="outlined" color="primary" href="/#/streetcred">
+                <Button variant="outlined" color="primary" href="/#/portfolio/streetcred">
                   View
                 </Button>
               </Grid>

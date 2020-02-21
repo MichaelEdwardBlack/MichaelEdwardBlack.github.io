@@ -18,7 +18,7 @@ class Picolabs extends React.Component {
                   <h1>Wovyn</h1>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href="/#/wovyn">Go To Project</Button>
+                  <Button size="small" href="/#/portfolio/picolabs/wovyn">Go To Project</Button>
                 </CardActions>
               </Card>
             </Grid>

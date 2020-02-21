@@ -44,14 +44,14 @@ function App() {
           <Router basename="/">
             <Route exact path="/" component={Home}>
             </Route>
-            <Route path="/portfolio" component={Portfolio}>
+            <Route exact path="/portfolio" component={Portfolio}>
             </Route>
-            <Route path="/picolabs" component={Picolabs}>
+            <Route exact path="/portfolio/picolabs" component={Picolabs}>
               <Picolabs />
             </Route>
-            <Route path="/wovyn" component={Wovyn}>
+            <Route exact path="/portfolio/picolabs/wovyn" component={Wovyn}>
             </Route>
-            <Route path="/streetcred" component={Streetcred}>
+            <Route exact path="/portfolio/streetcred" component={Streetcred}>
             </Route>
           </Router>
         </div>

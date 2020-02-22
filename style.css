@@ -5,3 +5,13 @@
 .pointer {
   cursor: pointer;
 }
+
+.light {
+  background-color: #fff;
+  color: black
+}
+
+.dark {
+  background-color: #121212;
+  color: white;
+}

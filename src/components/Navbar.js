@@ -63,8 +63,8 @@ class Navbar extends React.Component {
             open={Boolean(this.state.portfolioAnchorEl)}
             onClose={this.handlePortfolioClose}
           >
-            <MenuItem id="/#/porfolio/picolabs" onClick={this.navigateTo}>Picolabs</MenuItem>
-            <MenuItem id="/#/porfolio/streetcred" onClick={this.navigateTo}>Streetcred</MenuItem>
+            <MenuItem id="/#/portfolio/picolabs" onClick={this.navigateTo}>Picolabs</MenuItem>
+            <MenuItem id="/#/portfolio/streetcred" onClick={this.navigateTo}>Streetcred</MenuItem>
           </Menu>
 
           <IconButton onClick={this.props.toggleTheme} >

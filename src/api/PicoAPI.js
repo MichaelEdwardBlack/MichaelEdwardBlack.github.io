@@ -1,4 +1,4 @@
-import { config } from '../config.js';
+import config from '../config.js';
 
 // HELPER FUNCTIONS
 const addParams = function(baseURL, params) {

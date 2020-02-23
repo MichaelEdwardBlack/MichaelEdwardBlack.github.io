@@ -6,39 +6,47 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 import { fetchProfile, updateProfile } from '../../../api/WovynAPI';
+
+const cardContentHeight = "350px";
 
 class WovynProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       profile: {
-        "name": "First Sensor",
-        "location": "Timbuktu",
-        "contact": "17195390627",
-        "threshold": 90
+        "name": "",
+        "location": "",
+        "contact": "",
+        "threshold": ""
       },
       updateProfile: {
-        "new_sensor_name": "First Sensor",
-        "new_location": "Timbuktu",
-        "new_send_to": "17195390627",
-        "new_threshold": 90,
-      }
+        "new_sensor_name": "",
+        "new_location": "",
+        "new_send_to": "",
+        "new_threshold": "",
+      },
+      error: false
     };
   }
   async componentDidMount() {
-    let data = await fetchProfile();
-    console.log("fetch profile", data);
-    this.setState({
-      profile: data,
-      updateProfile: {
-        "new_sensor_name": data.name,
-        "new_location": data.location,
-        "new_send_to": data.contact,
-        "new_threshold": data.threshold
-      }
-    });
+    try {
+      let data = await fetchProfile();
+      this.setState({
+        profile: data,
+        updateProfile: {
+          "new_sensor_name": data.name,
+          "new_location": data.location,
+          "new_send_to": data.contact,
+          "new_threshold": data.threshold
+        }
+      });
+    } catch (e) {
+      this.setState({ error: true })
+    }
   }
   onUpdateProfile = async () => {
     let updatedProfile = this.state.updateProfile;
@@ -51,14 +59,26 @@ class WovynProfile extends React.Component {
     updatedProfile[event.target.id] = event.target.value;
     this.setState({ updateProfile: updatedProfile })
   };
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ error: false });
+  };
   render() {
     return (
       <Container>
-        <Grid container justify="center" alignItems="center">
+        <Snackbar open={this.state.error} autoHideDuration={6000} onClose={this.handleClose}>
+          <MuiAlert elevation={6} variant="filled" onClose={this.handleClose} severity="error">
+            Unable to get profile from the pico engine!
+          </MuiAlert>
+        </Snackbar>
+        <Grid container justify="center" alignItems="center" spacing={3}>
 
-          <Grid item xs={8} style={{ margin: "1rem" }}>
+          <Grid item xs={12} sm={6}>
             <Card>
-              <CardContent>
+              <CardContent style={{ height: cardContentHeight }}>
                 <h1>Profile</h1>
                 <h2>{this.state.profile.name}</h2>
                 <p>Location: {this.state.profile.location}</p>
@@ -68,9 +88,9 @@ class WovynProfile extends React.Component {
             </Card>
           </Grid>
 
-          <Grid item xs={8} style={{ margin: "1rem" }}>
+          <Grid item xs={12} sm={6}>
             <Card>
-              <CardContent>
+              <CardContent style={{ height: cardContentHeight }}>
                 <h1>New Profile</h1>
                 <FormControl>
                   <TextField

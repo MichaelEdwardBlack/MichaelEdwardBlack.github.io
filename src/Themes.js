@@ -3,11 +3,39 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const common = {
   palette: {
     primary: {
-      main: "#996bf5"
+      light: "#ffb5fe",
+      main: "#FF00FF",
+      dark: "#ed00f2"
     },
     secondary: {
-      main: '#ee0290',
+      light: "#a3ff90",
+      main: "#00ff00",
+      dark: "#00ea00",
       contrastText: '#ffcc00',
+    },
+    error: {
+      light: "#e57373",
+      main: "#f44336",
+      dark: "#d32f2f",
+      contrastText: "#fff"
+    },
+    warning: {
+      light: "#ffb74d",
+      main: "#ff9800",
+      dark: "#f57c00",
+      contrastText: "rgba(0, 0, 0, 0.87)"
+    },
+    info: {
+      light: "#64b5f6",
+      main: "#2196f3",
+      dark: "#1976d2",
+      contrastText: "#fff"
+    },
+    success: {
+      light: "#81c784",
+      main: "#4caf50",
+      dark: "#388e3c",
+      contrastText: "rgba(0, 0, 0, 0.87)"
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -19,6 +47,10 @@ export const light = createMuiTheme({
     type: 'light',
     primary: common.palette.primary,
     secondary: common.palette.secondary,
+    error: common.palette.error,
+    warning: common.palette.warning,
+    info: common.palette.info,
+    success: common.palette.success,
     contrastThreshold: common.palette.contrastThreshold,
     tonalOffset: common.palette.tonalOffset,
     text: {
@@ -53,6 +85,10 @@ export const dark = createMuiTheme({
     type: "dark",
     primary: common.palette.primary,
     secondary: common.palette.secondary,
+    error: common.palette.error,
+    warning: common.palette.warning,
+    info: common.palette.info,
+    success: common.palette.success,
     contrastThreshold: common.palette.contrastThreshold,
     tonalOffset: common.palette.tonalOffset,
     text: {

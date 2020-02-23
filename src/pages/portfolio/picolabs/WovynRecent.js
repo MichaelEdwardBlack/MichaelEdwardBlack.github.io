@@ -3,42 +3,81 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { fetchTemperatures } from '../../../api/WovynAPI';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import { withTheme } from '@material-ui/core/styles';
+
+import { fetchTemperatures, fetchProfile } from '../../../api/WovynAPI';
 
 class WovynRecent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { temperatures: {} };
+    this.state = { temperatures: {}, threshold: 100, error: false };
   }
   async componentDidMount() {
-    let data = await fetchTemperatures();
-    console.log("fetch temperatures", data);
-    this.setState({ temperatures: data });
+    try {
+      let temperatureData = await fetchTemperatures();
+      let profileData = await fetchProfile();
+      this.setState({ temperatures: temperatureData, threshold: profileData.threshold });
+    } catch (e) {
+      this.setState({ error: true })
+    }
   }
   renderTemperatureList() {
-    const temps = this.state.temperatures;
-    const keys = Object.keys(temps)
-    var list = [];
-    for (const key of keys) {
-      let date = new Date(key);
-      list.push(
-        <Grid item xs={3} style={{ margin: "1rem" }} key={key}>
+    const { temperatures, threshold } = this.state;
+    const palette = this.props.theme.palette;
+
+    // check if we have received data from the pico-engine
+    if (temperatures) {
+      return (
+        <Grid item xs={12}>
           <Card>
             <CardContent>
-              <h3>{date.toDateString()}</h3>
-              <h5>{date.toLocaleTimeString()}</h5>
-              <h3>{temps[key]}°F</h3>
+              <h2>No Recorded Temperature Readings</h2>
             </CardContent>
           </Card>
         </Grid>
       );
     }
-    return list.reverse();
+
+    const keys = Object.keys(temperatures)
+    var list = [];
+    for (const key of keys) {
+      let date = new Date(key);
+      let temperature = temperatures[key];
+      let tempColor = temperature >= threshold ? palette.danger.main : palette.success.main;
+      list.push(
+        <Grid item xs={3} key={key}>
+          <Card>
+            <CardContent>
+              <h3>{date.toDateString()}</h3>
+              <h5>{date.toLocaleTimeString()}</h5>
+              <h3 style={{ color: tempColor }}>{temperature}°F</h3>
+            </CardContent>
+          </Card>
+        </Grid>
+      );
+    }
+    return list.reverse(); // to order it with most recent at the top
   }
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ error: false });
+  };
+
   render() {
     return (
       <Container>
-        <Grid container justify="center" alignItems="center">
+        <Snackbar open={this.state.error} autoHideDuration={6000} onClose={this.handleClose}>
+          <MuiAlert elevation={6} variant="filled" onClose={this.handleClose} severity="error">
+            Unable to get temperatures from the pico engine!
+          </MuiAlert>
+        </Snackbar>
+        <Grid container justify="center" alignItems="center" spacing={3}>
             {this.renderTemperatureList()}
         </Grid>
       </Container>
@@ -46,4 +85,4 @@ class WovynRecent extends React.Component {
   }
 }
 
-export default WovynRecent;
+export default withTheme(WovynRecent);

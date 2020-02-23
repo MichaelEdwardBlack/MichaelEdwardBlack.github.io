@@ -46,7 +46,7 @@ class Navbar extends React.Component {
           <IconButton href="/">
             <HomeIcon />
           </IconButton>
-          <Typography id="/home" className="pointer" onClick={this.navigateTo} variant="h6">
+          <Typography id="/" className="pointer" onClick={this.navigateTo} variant="h6">
             Home
           </Typography>
 
@@ -71,7 +71,7 @@ class Navbar extends React.Component {
             {this.renderThemeIcon()}
           </IconButton>
           <Typography className="pointer" variant="h6" onClick={this.props.toggleTheme}>
-            {(this.props.theme.palette.type === "light") ? "Dark Mode" : "Light Mode"}
+            {(this.props.theme.palette.type === "light") ? "Dark" : "Light"}
           </Typography>
 
         </Toolbar>

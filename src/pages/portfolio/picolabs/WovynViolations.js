@@ -23,7 +23,7 @@ class WovynViolations extends React.Component {
     }
   }
   renderTemperatureList() {
-    const { temperatures, threshold } = this.state;
+    const { temperatures } = this.state;
     const palette = this.props.theme.palette;
 
     // check if we have received data from the pico-engine

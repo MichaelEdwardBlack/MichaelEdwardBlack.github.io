@@ -3,14 +3,14 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const common = {
   palette: {
     primary: {
-      light: "#ffb5fe",
-      main: "#FF00FF",
-      dark: "#ed00f2"
+      light: "rgb(173, 136, 247)",
+      main: "#996bf5",
+      dark: "rgb(107, 74, 171)"
     },
     secondary: {
-      light: "#a3ff90",
-      main: "#00ff00",
-      dark: "#00ea00",
+      light: "#91ff35",
+      main: "#76ff03",
+      dark: "#52b202",
       contrastText: '#ffcc00',
     },
     error: {

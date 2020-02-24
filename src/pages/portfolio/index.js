@@ -28,6 +28,8 @@ class Portfolio extends React.Component {
                     <h2>
                       <span onClick={() => window.open("http://picolabs.io/", "_blank")} style={{ color: palette.primary.main }} className="pointer">Pico Labs</span>
                     </h2>
+                    <p>Pico Labs at Brigham Young University creates Internet of Things technology that preserves personal freedom.</p>
+                    <p>Pico Labs is responsible for Picos, an actor-based programming system that supports people-centric, reactive programming on the Internet of Things.</p>
                   </CardContent>
                   <CardActions>
                     <Button color="secondary" href="/#/portfolio/picolabs">View Projects</Button>
@@ -41,6 +43,8 @@ class Portfolio extends React.Component {
                     <h2>
                       <span onClick={() => window.open("https://streetcred.id/", "_blank")} style={{ color: palette.primary.main }} className="pointer">Streetcred</span>
                     </h2>
+                    <p>Brings life-like identity online</p>
+                    <p>Easily integrate self-sovereign identity with just a few lines of code.</p>
                   </CardContent>
                   <CardActions>
                     <Button color="secondary" href="/#/portfolio/streetcred">View Projects</Button>

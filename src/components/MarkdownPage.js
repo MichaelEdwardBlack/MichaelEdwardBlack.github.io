@@ -1,4 +1,5 @@
 import React from 'react';
+import './MarkdownPage.css';
 
 async function getTextFromFile(file) {
   let response = await fetch(file);
@@ -37,7 +38,7 @@ class MarkdownPage extends React.Component {
   }
 
   render() {
-    return <div ref={this.page}></div>;
+    return <div ref={this.page} {...this.props}></div>;
   }
 }
 

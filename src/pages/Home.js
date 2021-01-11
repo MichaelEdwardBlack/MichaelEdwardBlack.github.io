@@ -1,17 +1,34 @@
 import React from 'react';
-import { Container } from '../components';
+import { connect } from 'react-redux';
+import { Button, Col, Container, Row } from '../components';
 
 
 class Home extends React.Component {
   render() {
+    let animationClass = "transition duration-1000 ease-in-out transform animate-slideup"
     return (
       <Container className="w-full">
-        <div className="flex items-center justify-center w-full mt-12">
-          <h1 className="transition duration-500 ease-in transform -translate-y-1">Hello</h1>
-        </div>
+        <Col className="mt-24 text-center">
+          <h1 className={animationClass}>
+            Hello, I'm <span className={`${animationClass} ${this.props.theme.primaryTextColor}`}>Michael Black</span>
+          </h1>
+          <h1 className={animationClass}>
+            and I'm a <span className={`${animationClass} ${this.props.theme.primaryTextColor}`}>Full Stack Engineer</span>
+          </h1>
+          <Row className="items-center justify-center mt-8">
+            <Button className="w-48 mx-2">Portfolio</Button>
+            <Button variant="outline" className="w-48 mx-2" onClick={_ => window.location.href="/#/blog"}>Blog</Button>
+          </Row>
+        </Col>
       </Container>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    theme: state.theme
+  }
+}
+
+export default connect(mapStateToProps, null)(Home);

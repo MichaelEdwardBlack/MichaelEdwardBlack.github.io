@@ -1,3 +1,4 @@
+const { opacity } = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -7,16 +8,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: "#f1e2fe",
-          100: "#d7b8fd",
-          200: "#bc87fc",
-          300: "#9d54f2",
-          400: "#842ae3",
-          500: "#6900d3",
-          600: "#5e00ce",
-          700: "#4e00c5",
-          800: "#3d00be",
-          900: "#1b00b0"
+          50: "#f5e9f9",
+          100: "#f2e7fe",
+          200: "#e4cffe",
+          300: "#d7b7fd",
+          400: "#c99ffd",
+          500: "#bc87fc",
+          600: "#966cca",
+          700: "#715197",
+          800: "#4b3665",
+          900: "#261b32"
         },
         secondary: {
           50: "#d4f6f2",
@@ -36,9 +37,70 @@ module.exports = {
         danger: {
           ...defaultTheme.colors.red
         }
+      },
+      animation: {
+        slideup: 'slideup 1.5s ease-out forwards',
+        slidedown: 'slidedown 1.5s ease-out forwards',
+        slideleft: 'slideleft 1.5s ease-out forwards',
+        slideright: 'slideright 1.5s ease-out forwards',
+      },
+      keyframes: {
+        slideup: {
+          '0%': { 
+            transform: 'translateY(50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 0
+          },
+          '100%': {  
+            transform: 'translateY(-50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 1
+          },
+        },
+        slidedown: {
+          '0%': { 
+            transform: 'translateY(-50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 0
+          },
+          '100%': {  
+            transform: 'translateY(50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 1
+          },
+        },
+        slideleft: {
+          '0%': { 
+            transform: 'translateX(50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 0
+          },
+          '100%': {  
+            transform: 'translateX(-50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 1
+          },
+        },
+        slideright: {
+          '0%': { 
+            transform: 'translateX(-50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 0
+          },
+          '100%': {  
+            transform: 'translateX(50%)', 
+            animationTimingFuntion: 'cubic-bezier(0.4, 0, 1, 1)',
+            opacity: 1
+          },
+        }
       }
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      transitionProperty: ['hover', 'focus'],
+      transitionDuration: ['hover', 'focus']
+    }
+  },
   plugins: [],
 }

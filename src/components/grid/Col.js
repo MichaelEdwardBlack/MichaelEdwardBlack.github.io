@@ -47,7 +47,7 @@ export const Col = ({ xs, sm, md, lg, xl, className, children, ...props }) => {
 
 Col.defaultProps = {
   xs: "auto",
-  className: ""
+  className: "flex flex-col"
 }
 
 export default Col;

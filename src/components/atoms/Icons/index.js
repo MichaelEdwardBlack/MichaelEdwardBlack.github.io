@@ -8,3 +8,6 @@ export * from './UploadIcon';
 export * from './GradCapIcon';
 export * from './TrendingUpIcon';
 export * from './HamburgerIcon';
+export * from './MoonIcon';
+export * from './SunIcon';
+export * from './ArrowCircleLeftIcon';

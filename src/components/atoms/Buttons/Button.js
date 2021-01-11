@@ -7,8 +7,8 @@ export const Button = ({ className, color, variant, children, ...props }) => {
     "px-4",
     className
   ]
-  const defaultClass = `bg-${color}-500 hover:bg-${color}-700 text-white rounded-full`;
-  const outlineClass = `bg-transparent hover:bg-${color}-500 text-${color}-700 font-semibold hover:text-white border border-${color}-500 hover:border-transparent rounded-full`
+  const defaultClass = `bg-${color}-500 hover:bg-${color}-600 text-white rounded-full`;
+  const outlineClass = `bg-transparent hover:bg-${color}-500 text-${color}-500 font-semibold hover:text-white border border-${color}-500 hover:border-transparent rounded-full`
 
   switch (variant) {
     case "outline":

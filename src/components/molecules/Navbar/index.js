@@ -7,16 +7,15 @@ export const NavbarLogo = ({ children, className, ...props }) => {
     "items-center",
     "flex-shrink-0",
     "mr-6",
-    "text-white",
     className
   ];
 
   let baseClass = classArray.join(' ');
 
   return (
-    <div className={baseClass} {...props}>
+    <a className={baseClass} {...props}>
       {children}
-    </div>
+    </a>
   );
 }
 
@@ -32,7 +31,11 @@ export const NavbarList = ({children, className, ...props}) => {
 
   let innerClass = [
     "text-lg",
+    "inline-flex",
+    "flex-col",
+    "items-center",
     "lg:flex-grow",
+    "lg:flex-row",
     className
   ].join(' ');
 
@@ -46,16 +49,15 @@ export const NavbarList = ({children, className, ...props}) => {
   );
 }
 
-export const NavbarItem = ({children, className, href, ...props}) => {
+export const NavbarLink = ({children, className, href, ...props}) => {
   let classArray = [
     "block",
     "mt-4",
     "mr-4",
-    "text-primary-200",
     "lg:inline-block",
     "lg:mt-0",
-    "hover:text-white",
     "cursor-pointer",
+    "hover:text-primary-500",
     className
   ];
 
@@ -68,6 +70,27 @@ export const NavbarItem = ({children, className, href, ...props}) => {
   )
 }
 
+export const NavbarItem = ({children, className, ...props}) => {
+  let classArray = [
+    "block",
+    "mt-4",
+    "mr-4",
+    "lg:inline-block",
+    "lg:mt-0",
+    "cursor-pointer",
+    "hover:text-primary-500",
+    className
+  ];
+
+  let baseClass = classArray.join(' ');
+
+  return (
+    <div className={baseClass} {...props}>
+      {children}
+    </div>
+  )
+}
+
 export const MenuButton = ({children, className, onClick, ...props}) => {
   let classArray = [
     "flex",
@@ -77,11 +100,9 @@ export const MenuButton = ({children, className, onClick, ...props}) => {
     "py-1",
     "h-8",
     "w-8",
-    "text-primary-200",
     "border",
     "border-primary-400",
     "rounded",
-    "hover:text-white",
     "hover:border-white",
     "float-right",
     className
@@ -104,20 +125,17 @@ export class Navbar extends React.Component {
       showMenu: false
     }
 
-    let classArray = [
+    this.classArray = [
       "flex",
       "flex-wrap",
       "items-center",
       "justify-between",
       "p-6",
-      "bg-black",
-      props.className
     ];
-
-    this.baseClass = classArray.join(' ');
   }
   static Logo = NavbarLogo;
   static List = NavbarList;
+  static Link = NavbarLink;
   static Item = NavbarItem;
   // static MobileMenu = NavbarMobileMenu;
 
@@ -126,13 +144,13 @@ export class Navbar extends React.Component {
     let itemList = this.props.children.filter(x => x.type !== NavbarLogo)
 
     return (
-      <nav className={this.baseClass}>
+      <nav className={[...this.classArray, this.props.className].join(' ')}>
         <div className="hidden w-full lg:flex">
           {this.props.children}
         </div>
         <div className="flex items-center justify-between w-full lg:hidden">
           {brandLogo}
-          <div className={`block ${this.state.showMenu ? "" : "w-full"}`}>
+          <div className={"block w-full"}>
             <MenuButton onClick={() => this.setState({ showMenu: !this.state.showMenu })}>
               {this.state.showMenu && <XIcon />}
               {this.state.showMenu === false && <HamburgerIcon className="pl-px ml-px" />}

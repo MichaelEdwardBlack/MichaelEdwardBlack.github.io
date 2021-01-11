@@ -2,9 +2,16 @@ import React from 'react';
 
 export const Card = ({ children, className, size, shadowSize, ...props }) => {
   let classArray = [
+    'relative',
     'rounded',
     `shadow-${shadowSize}`,
-    'bg-white',
+    'max-w-xs',
+    'w-full',
+    "p-5",
+    "m-5",
+    "group",
+    className?.includes("h-") ? "" : "h-64",
+    className?.includes("bg-") ? "" : 'bg-white',
     className
   ]
   let baseClass = classArray.join(' ');

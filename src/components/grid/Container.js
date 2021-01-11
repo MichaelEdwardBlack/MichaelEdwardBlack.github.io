@@ -1,22 +1,11 @@
 import React from 'react';
 
-export const Container = ({ className, children, ...props }) => {
-  let classArray = [
-      "container",
-      className
-  ]
-
-  let baseClass = classArray.join(' ');
-
+export const Container = ({ children, ...props }) => {
   return (
-    <div className={baseClass} {...props}>
+    <div {...props}>
       {children}
     </div>
   );
-}
-
-Container.defaultProps = {
-  className: ""
 }
 
 export default Container;

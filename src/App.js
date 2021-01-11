@@ -1,51 +1,59 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { light, dark } from './Themes';
 import { changeTheme } from './actions';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { HashRouter as Router, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
+import { MoonIcon, Navbar, SunIcon, ToggleButton } from './components';
 import Home from './pages/Home';
 import Portfolio from './pages/portfolio';
 import Picolabs from './pages/portfolio/picolabs';
-import Wovyn from './pages/portfolio/picolabs/Wovyn';
-import Streetcred from './pages/portfolio/streetcred';
-
+import Trinsic from './pages/portfolio/trinsic';
+import Blog from './pages/blog';
+import BlogPost from './pages/blog/BlogPost';
+import { Theme } from './constants';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleTheme = this.toggleTheme.bind(this);
-  }
-  toggleTheme() {
-    if (this.props.theme === "light") {
-      this.props.changeTheme("dark")
+  toggleTheme = () => {
+    if (this.props.theme === Theme.Light) {
+      this.props.changeTheme(Theme.Dark)
     }
     else {
-      this.props.changeTheme("light")
+      this.props.changeTheme(Theme.Light)
     }
   }
+
+  themeIcon = () => (this.props.theme === Theme.Light) 
+    ? <SunIcon className="text-white"/> 
+    : <MoonIcon className="text-black"/>;
+
+  dotProps = () => (this.props.theme === Theme.Light) ? { className: "bg-black"} : { className: "bg-white"}
+
   render() {
+    let theme = this.props.theme;
+
     return (
-      <ThemeProvider theme={this.props.theme === "light" ? light : dark}>
-        <CssBaseline>
-          <Navbar toggleTheme={this.toggleTheme} />
-          <Router basename="/">
-            <Route exact path="/" component={Home}>
-            </Route>
-            <Route exact path="/portfolio" component={Portfolio}>
-            </Route>
-            <Route exact path="/portfolio/picolabs" component={Picolabs}>
-              <Picolabs />
-            </Route>
-            <Route exact path="/portfolio/picolabs/wovyn" component={Wovyn}>
-            </Route>
-            <Route exact path="/portfolio/streetcred" component={Streetcred}>
-            </Route>
-          </Router>
-        </CssBaseline>
-      </ThemeProvider>
+      <div className={`${theme.backgroundColor} ${theme.textColor} min-h-screen transition-colors duration-500`}>
+        <Navbar className={`${theme.navbarBackground} ${theme.textColor}`}>
+          <Navbar.Logo href="/#">
+            <img src="/images/Blacklite.jpg" alt="Blacklite" className="w-12 h-12"/>
+          </Navbar.Logo>
+          <Navbar.List>
+            <Navbar.Link href="/#/blog">
+              Blog
+            </Navbar.Link>
+            <Navbar.Item>
+              <ToggleButton dot={this.themeIcon()} dotProps={this.dotProps()} value={theme === Theme.Dark} onChange={e => this.toggleTheme()}/>
+            </Navbar.Item>
+          </Navbar.List>
+        </Navbar>
+        <Router basename="/">
+          <Route exact path="/" component={Home} />
+          <Route exact path="/portfolio" component={Portfolio} />
+          <Route exact path="/portfolio/picolabs" component={Picolabs} />
+          <Route exact path="/portfolio/trinsic" component={Trinsic} />
+          <Route exact path="/blog" component={Blog} />
+          <Route path="/blog/:id" component={BlogPost} />
+        </Router>
+      </div>
     );
   }
 }

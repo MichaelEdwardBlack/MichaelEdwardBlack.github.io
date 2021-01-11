@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply text-4xl font-bold
+}
+h2 {
+  @apply text-4xl font-semibold
+}
+h3 {
+  @apply text-3xl font-bold
+}
+h4 {
+  @apply text-2xl font-semibold
+}
+h5 {
+  @apply text-xl font-bold
+}
+h6 {
+  @apply text-xl font-semibold
+}
+
+body {
+  @apply bg-gray-200
+}
+
+.parallax { 
+  /* Create the parallax scrolling effect - just add background-image: url(path/to/image); */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    @apply text-4xl font-bold
+  }
+  h2 {
+    @apply text-3xl font-bold
+  }
+  h3 {
+    @apply text-2xl font-bold
+  }
+  h4 {
+    @apply text-xl font-bold
+  }
+  h5 {
+    @apply text-lg font-bold
+  }
+  h6 {
+    @apply text-lg font-semibold
+  }
+}
+
+@media  (min-width: 768px) {
+  h1 {
+    @apply text-5xl font-bold
+  }
+  h2 {
+    @apply text-4xl font-bold
+  }
+  h3 {
+    @apply text-3xl font-bold
+  }
+  h4 {
+    @apply text-2xl font-bold
+  }
+  h5 {
+    @apply text-xl font-bold
+  }
+  h6 {
+    @apply text-lg font-bold
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    @apply text-6xl font-bold
+  }
+  h2 {
+    @apply text-5xl font-bold
+  }
+  h3 {
+    @apply text-4xl font-bold
+  }
+  h4 {
+    @apply text-3xl font-bold
+  }
+  h5 {
+    @apply text-2xl font-semibold
+  }
+  h6 {
+    @apply text-xl font-semibold
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    @apply text-6xl font-bold
+  }
+  h2 {
+    @apply text-5xl font-bold
+  }
+  h3 {
+    @apply text-4xl font-bold
+  }
+  h4 {
+    @apply text-3xl font-bold
+  }
+  h5 {
+    @apply text-2xl font-bold
+  }
+  h6 {
+    @apply text-xl font-bold
+  }
+}

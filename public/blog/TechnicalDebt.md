@@ -2,7 +2,7 @@
 
 ## Cost of Debt
 
-Technical debt is a software development term that insinuates a cost of future rework caused by choosing an quick and easy solution now instead of using a better approach that would take longer.
+Technical debt is a software development term that insinuates a cost of future rework caused by choosing a quick and easy solution now instead of using a better approach that would take longer.
 
 
 To better understand the need to avoid technical debt, I want to explore the cost associated to it:

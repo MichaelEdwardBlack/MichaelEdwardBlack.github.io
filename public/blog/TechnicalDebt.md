@@ -37,4 +37,20 @@ Seemed like overkill to me when I first read it but the fire deparment understoo
 The same "I'll fix it later" habit manifests in code reviews. When going through PR's we sometimes stumble upon code that works but is difficult to read, has code duplication, magic strings/numbers, or violates other various design principles. When there's pressure for quick release sometimes it's easy to say "oh we can clean up later," but do your best to avoid this. 
 
 
-I'd like to go over one example of code duplication. If you hit `copy` and `paste` in your code, that's an easy tell. But code duplication applies to more than the characters themselves; it applies to _intent_ or _expression_. You can express the same message or intent in two different places and in different ways. This type of code duplication is harder to find and fix. 
+I'd like to go over one example of code duplication. If you hit `copy` and `paste` in your code, that's an easy tell. But code duplication applies to more than the characters themselves; it applies to _intent_ or _expression_. You can express the same message or intent in two different places and in different ways. This type of code duplication is harder to find and fix. Let's look at this example of 2 different functions in your code:
+```csharp
+public bool IsValidAge(int aAge)
+{
+  return (0 < aAge && aAge < 100);
+}
+
+public bool IsValidPercentage(int aPercentage)
+{
+  return (0 < aAge && aAge < 100);
+}
+```
+Someone might tell you that you have code duplication. While, yes, the bodies of each function is the same, the message they communicate is not the same. Maybe your criteria for valid age will change, but even if it doesn't, keeping these functions separate is important to code readablility.
+
+## Conclusion
+
+Technical debt is expensive. Do your best to recognize those moments when you think to yourself "I'll fix this later" and instead **Fix it when you see it.**

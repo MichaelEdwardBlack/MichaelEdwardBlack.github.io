@@ -16,7 +16,7 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  let classArray = ["font-bold", "py-2", "px-4", className];
+  let classArray = ["font-bold", "py-2", "px-4", "text-lg", className];
   const defaultClass = `bg-${color}-500 hover:bg-${color}-600 text-white rounded-full`;
   const outlineClass = `bg-transparent hover:bg-${color}-500 text-${color}-500 font-semibold hover:text-white border border-${color}-500 hover:border-transparent rounded-full`;
 

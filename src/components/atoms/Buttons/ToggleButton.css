@@ -1,3 +1,0 @@
-.toggle__input:checked ~ .toggle__dot {
-  transform: translateX(100%);
-}

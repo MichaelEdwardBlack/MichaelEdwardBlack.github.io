@@ -29,18 +29,24 @@ const hasNumber = (aString: string) => {
   return /\d/.test(aString);
 };
 
-interface PortfolioCardProps {
+interface ResumeCardProps {
   text: string;
   link?: React.ReactNode;
+  chips?: string[];
 }
 
-export const PortfolioCard = ({ text, link }: PortfolioCardProps) => {
+export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
   return (
     <motion.div
       variants={variants.card}
-      className="flex flex-col justify-between w-full h-48 p-4 overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700"
+      className="flex flex-col w-full h-48 p-4 overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700"
     >
-      <motion.div variants={variants.sentence}>
+      <motion.div className="flex gap-1 text-sm font-semibold" variants={variants.sentence}>
+        {chips?.map((chip, i) => (
+          <div key={chip + i} className="px-2 py-1 rounded-full shadow bg-secondary-500">{chip}</div>
+        ))}
+      </motion.div>
+      <motion.div className="h-full" variants={variants.sentence}>
         {text.split(" ").map((word, i) => (
           <motion.span
             key={word + i}
@@ -55,7 +61,9 @@ export const PortfolioCard = ({ text, link }: PortfolioCardProps) => {
           </motion.span>
         ))}
       </motion.div>
-      <div className="self-end">{link}</div>
+      <div className="self-end">
+        {link}
+      </div>
     </motion.div>
   );
 };

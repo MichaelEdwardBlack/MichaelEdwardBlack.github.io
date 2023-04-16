@@ -8,7 +8,7 @@ const variants = {
   visible: animations.visible,
 };
 
-export const Portfolio = () => {
+export const Resume = () => {
   return (
     <AnimatePresence>
       <motion.div
@@ -18,7 +18,7 @@ export const Portfolio = () => {
         animate="visible"
         exit={{ opacity: 0, transition: { duration: 0.5 } }}
       >
-        <h1>Portfolio</h1>
+        <h1>Resume</h1>
         <Trinsic />
         <hr className="w-full h-2 m-16 bg-gray-800 dark:bg-gray-200" />
         <PicoLabs />

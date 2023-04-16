@@ -5,7 +5,7 @@ import { themeState } from "./atoms/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NavigationBar } from "./components/NavigationBar";
 import { AnimatePresence } from "framer-motion";
-import { Portfolio } from "./pages/portfolio/Portfolio";
+import { Resume } from "./pages/portfolio/Resume";
 import React from "react";
 import { Footer } from "./components/Footer";
 
@@ -15,7 +15,7 @@ export const App = () => {
   const location = useLocation();
   const element = useRoutes([
     { path: "/", element: <Home /> },
-    { path: "/portfolio", element: <Portfolio /> },
+    { path: "/portfolio", element: <Resume /> },
   ]);
 
   return (

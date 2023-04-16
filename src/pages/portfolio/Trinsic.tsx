@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { FingerPrintIcon } from "../../components/AnimatedIcons/FingerPrintIcon";
-import { PortfolioCard } from "./PortfolioCard";
+import { ResumeCard } from "./ResumeCard";
 import { CalendarDaysIcon } from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/Buttons";
 
 const variants = {
   cards: {
@@ -23,6 +25,7 @@ const variants = {
 };
 
 export const Trinsic = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center w-full gap-2 pl-6 md:gap-8 md:pl-8">
       <div className="grid w-full grid-cols-1 gap-4 justify-items-center md:grid-cols-4">
@@ -39,18 +42,18 @@ export const Trinsic = () => {
             className="flex flex-col w-full gap-4 text-lg"
             variants={variants.cards}
           >
-            <PortfolioCard
+            <ResumeCard
               text="Created a studio for other developers to create and issue over 1,000 credentials per month"
+              chips={["React", "ASP.net", "Blazor", "Typescript", "gRPC"]}
               link={
-                <a
-                  className="text-blue-500 cursor-pointer hover:underline"
-                  href="https://dashboard.trinsic.id/onboarding/signup"
-                >
-                  Trinsic Dashboard
-                </a>
+                <div className="flex">
+                  <Button color="secondary" onClick={() => navigate("https://dashboard.trinsic.id")}>See Project</Button>
+                  <Button variant="outline" color="secondary" disabled>Source Code</Button>
+                </div>
               }
             />
-            <PortfolioCard
+            <ResumeCard
+              chips={["React"]}
               text="Architected entire front-end platform for Farmer Connect raising over $5k a month and providing farmers all over the world with secure digital identity using SSI and Blockchain technologies"
               link={
                 <a
@@ -61,8 +64,8 @@ export const Trinsic = () => {
                 </a>
               }
             />
-            <PortfolioCard text="Developed a front end application for thousands of farmers across the world to hold their personal credentials" />
-            <PortfolioCard text="Contributed to back-end applications that improved performance by more than 100x" />
+            <ResumeCard chips={["React"]} text="Developed a front end application for thousands of farmers across the world to hold their personal credentials" />
+            <ResumeCard chips={["gRPC", "Protobuf", "ASP.dotnet", "C#", "Python", "Go"]} text="Contributed to back-end applications that improved performance by more than 100x" />
           </motion.div>
           <div
             className="flex flex-col w-4 pt-20 pr-6 transition-all duration-300 ease-in delay-100 cursor-default md:pr-8 hover:w-24 group"

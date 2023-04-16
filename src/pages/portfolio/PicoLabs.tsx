@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PortfolioCard } from "./PortfolioCard";
+import { ResumeCard } from "./ResumeCard";
 import { CalendarDaysIcon } from "@heroicons/react/24/solid";
 import { CloudIcon } from "../../components/AnimatedIcons/CloudIcon";
 
@@ -33,7 +33,7 @@ export const PicoLabs = () => {
             className="flex flex-col w-full gap-4 text-lg"
             variants={variants.cards}
           >
-            <PortfolioCard
+            <ResumeCard
               text="Published production-level applications used by 100s of users"
               link={
                 <a
@@ -44,7 +44,7 @@ export const PicoLabs = () => {
                 </a>
               }
             />
-            <PortfolioCard
+            <ResumeCard
               text="Enabled email and telnet compatibility to the pico engine"
               link={
                 <a
@@ -55,7 +55,7 @@ export const PicoLabs = () => {
                 </a>
               }
             />
-            <PortfolioCard text="Contributed to the development of the Kinetic Rule Language to manage IoT devices" />
+            <ResumeCard text="Contributed to the development of the Kinetic Rule Language to manage IoT devices" />
           </motion.div>
           <div
             className="flex flex-col w-4 pt-20 pr-6 transition-all duration-300 ease-in delay-100 cursor-default md:pr-8 hover:w-24 group"

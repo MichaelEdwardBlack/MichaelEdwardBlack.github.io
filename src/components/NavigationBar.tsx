@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const spring = {
   type: "spring",
   stiffness: 700,
-  damping: 30
+  damping: 30,
 };
 
 export const NavigationBar = () => {
@@ -21,9 +21,16 @@ export const NavigationBar = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 p-2 mx-2 border-b-2 border-gray-800 dark:border-white">
-      <div className={`h-8 w-14 bg-gray-300 dark:bg-gray-600 border-2 flex items-center justify-start dark:justify-end rounded-full py-2 px-1 cursor-pointer`} onClick={toggleTheme}>
-        <motion.div className="w-6 h-6 bg-white rounded-full dark:bg-gray-800" layout transition={spring}>
+    <div className="sticky top-0 z-10 flex items-center justify-end gap-2 p-3 border-b-2 border-gray-800 dark:border-white backdrop-blur-sm">
+      <div
+        className={`h-8 w-14 bg-gray-300 dark:bg-gray-600 border-2 flex items-center justify-start dark:justify-end rounded-full py-2 px-1 cursor-pointer`}
+        onClick={toggleTheme}
+      >
+        <motion.div
+          className="w-6 h-6 bg-white rounded-full dark:bg-gray-800"
+          layout
+          transition={spring}
+        >
           <SunIcon className="block text-yellow-500 dark:hidden" />
           <MoonIcon className="hidden text-yellow-500 dark:block" />
         </motion.div>

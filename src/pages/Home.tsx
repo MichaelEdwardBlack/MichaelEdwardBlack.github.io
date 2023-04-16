@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components";
 import { AnimatePresence, motion } from "framer-motion";
 import { animations } from "../constants/Animations";
+import { Button } from "../components/Buttons";
 
 export const Home = () => {
   const navigate = useNavigate();
   return (
     <AnimatePresence>
-      <div className="flex flex-col pt-20 text-center">
+      <div className="flex flex-col pt-32 text-center transition-colors duration-700 ease-in-out">
         <motion.div
           className="flex flex-col text-center"
           variants={animations.slideInFromBottom}
@@ -24,10 +24,22 @@ export const Home = () => {
           </h1>
         </motion.div>
         <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-          <motion.div variants={animations.slideInFromLeft} initial="initial" animate="animate" exit={animations.hidden}>
-            <Button className="w-48" onClick={() => navigate("/portfolio")}>Portfolio</Button>
+          <motion.div
+            variants={animations.slideInFromLeft}
+            initial="initial"
+            animate="animate"
+            exit={animations.hidden}
+          >
+            <Button className="w-48" onClick={() => navigate("/portfolio")}>
+              Portfolio
+            </Button>
           </motion.div>
-          <motion.div variants={animations.slideInFromRight} initial="initial" animate="animate" exit={animations.hidden}>
+          <motion.div
+            variants={animations.slideInFromRight}
+            initial="initial"
+            animate="animate"
+            exit={animations.hidden}
+          >
             <Button
               variant="outline"
               className="w-48"

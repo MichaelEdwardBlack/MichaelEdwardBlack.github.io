@@ -7,6 +7,7 @@ import { NavigationBar } from "./components/NavigationBar";
 import { AnimatePresence } from "framer-motion";
 import { Portfolio } from "./pages/portfolio/Portfolio";
 import React from "react";
+import { Footer } from "./components/Footer";
 
 export const App = () => {
   const queryClient = new QueryClient();
@@ -15,21 +16,24 @@ export const App = () => {
   const element = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/portfolio", element: <Portfolio /> },
-  ])
+  ]);
 
   return (
     <div className={theme}>
-      <div className="h-screen text-black bg-gray-100 dark:bg-gray-800 dark:text-white">
+      <div className="flex flex-col min-h-screen gap-8 text-black bg-gray-100 dark:bg-gray-800 dark:text-white">
         <QueryClientProvider client={queryClient}>
           <NavigationBar />
           <AnimatePresence mode="wait">
-            {React.cloneElement(element ?? <div>Not found!</div>, { key: location.pathname })}
+            {React.cloneElement(element ?? <div>Not found!</div>, {
+              key: location.pathname,
+            })}
             {/* <Route path="/portfolio" element={Portfolio} />
             <Route path="/portfolio/picolabs" element={Picolabs} />
             <Route path="/portfolio/trinsic" element={Trinsic} />
             <Route path="/blog" element={Blog} />
           <Route path="/blog/:id" element={BlogPost} /> */}
           </AnimatePresence>
+          <Footer />
         </QueryClientProvider>
       </div>
     </div>

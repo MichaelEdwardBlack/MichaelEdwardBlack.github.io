@@ -36,6 +36,9 @@ export const theme = {
         ...colors.red,
       },
     },
+    backgroundImage: {
+      business: "url('../public/images/Business-Background.jpg')",
+    },
   },
 };
 export const variants = {

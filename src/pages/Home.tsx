@@ -22,6 +22,7 @@ export const Home = () => {
           <span className="text-primary-500">Full Stack Engineer</span>
         </h1>
       </motion.div>
+
       <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
         <motion.div
           variants={animations.slideInFromLeft}
@@ -42,11 +43,26 @@ export const Home = () => {
           <Button
             variant="outline"
             className="w-48"
-            onClick={() => navigate("/blog")}
+            onClick={() =>
+              document
+                .querySelector("#contact")
+                ?.scrollIntoView({ behavior: "smooth", block: "center" })
+            }
           >
             Contact Me
           </Button>
         </motion.div>
+      </div>
+
+      <div className="h-64 py-16 text-white mt-44 skew-y-2 bg-secondary-500">
+        <div className="grid grid-cols-2 -skew-y-2">
+          <div>This is where an interactive image will go</div>
+          <div>This is where my skill set will go</div>
+        </div>
+      </div>
+
+      <div className="h-64 py-16" id="contact">
+        <div>This is where my contact page will go</div>
       </div>
     </div>
   );

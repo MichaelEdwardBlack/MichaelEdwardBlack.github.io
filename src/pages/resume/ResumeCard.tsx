@@ -42,7 +42,7 @@ export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
       className="flex flex-col w-full gap-2 p-4 bg-gray-200 rounded-lg shadow-lg h-52 dark:bg-gray-700"
     >
       <motion.div
-        className="flex gap-1 text-sm font-semibold overflow-x-clip"
+        className="flex gap-1 text-sm font-semibold whitespace-nowrap overflow-x-clip"
         variants={variants.sentence}
       >
         {chips?.map((chip, i) => (

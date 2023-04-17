@@ -34,30 +34,34 @@ export const PicoLabs = () => {
           variants={variants.cards}
         >
           <ResumeCard
-            text="Something about Manifold"
+            text="Published production-level applications used by 100s of users allowing people to digitize and shadow real life things as IoT devices"
             chips={["React", "KRL", "Node", "IoT"]}
             link={
               <Button
-                onClick={() => window.open("https://manifold.picolabs.io/#/login", "_blank")}
+                onClick={() =>
+                  window.open("https://manifold.picolabs.io/#/login", "_blank")
+                }
               >
                 See Project
               </Button>
             }
           ></ResumeCard>
           <ResumeCard
-            chips={["Node", "Language Processing", "TCP", "Telnet"]}
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            chips={["Node", "Language Processing", "TCP", "Telnet", "SMTP"]}
+            text="Enabled email and telnet compatibility to the pico engine"
             link={
               <Button
-                onClick={() => window.open("https://www.farmerconnect.com", "_blank")}
+                onClick={() =>
+                  window.open("https://www.farmerconnect.com", "_blank")
+                }
               >
-                See Website
+                Source Code
               </Button>
             }
           ></ResumeCard>
           <ResumeCard
-            chips={["gRPC", "Protobuf", "ASP.dotnet", "C#", "Python", "Go"]}
-            text="Contributed to back-end applications that improved performance by more than 100x"
+            chips={["Node", "KRL", "IoT"]}
+            text="Contributed to the development of the Kinetic Rule Language to manage IoT devices"
           ></ResumeCard>
         </motion.div>
         <TimelineBar span={3} startYear="2018" endYear="2019" />
@@ -65,8 +69,3 @@ export const PicoLabs = () => {
     </div>
   );
 };
-
-
-
-// "https://manifold.picolabs.io/#/login"
-// "https://github.com/Picolab/pico-engine"

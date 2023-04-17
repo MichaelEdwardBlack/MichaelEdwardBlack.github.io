@@ -35,28 +35,40 @@ export const Trinsic = () => {
         >
           <ResumeCard
             text="Created a studio for other developers to create and issue over 1,000 credentials per month"
-            chips={["React", "ASP.net", "Blazor", "Typescript", "gRPC"]}
+            chips={[
+              "React",
+              "ASP.net",
+              "Blazor",
+              "Typescript",
+              "gRPC",
+              "Blockchain",
+              "Hyperledger",
+            ]}
             link={
               <Button
-                onClick={() => window.open("https://dashboard.trinsic.id", "_blank")}
+                onClick={() =>
+                  window.open("https://dashboard.trinsic.id", "_blank")
+                }
               >
                 See Project
               </Button>
             }
           ></ResumeCard>
           <ResumeCard
-            chips={["React"]}
+            chips={["React", "Blockchain", "Supply Chain"]}
             text="Architected entire front-end platform for Farmer Connect raising over $5k a month and providing farmers all over the world with secure digital identity using SSI and Blockchain technologies"
             link={
               <Button
-                onClick={() => window.open("https://www.farmerconnect.com", "_blank")}
+                onClick={() =>
+                  window.open("https://www.farmerconnect.com", "_blank")
+                }
               >
                 See Website
               </Button>
             }
           ></ResumeCard>
           <ResumeCard
-            chips={["React"]}
+            chips={["React", "Internationalization"]}
             text="Developed a front end application for thousands of farmers across the world to hold their personal credentials"
           ></ResumeCard>
           <ResumeCard

@@ -1,17 +1,20 @@
 import { CalendarDaysIcon } from "@heroicons/react/24/solid";
 
 interface TimelineBarProps {
-  startYear: string,
-  endYear: string,
-  span: number
+  startYear: string;
+  endYear: string;
+  span: number;
 }
 export const TimelineBar = ({ startYear, endYear, span }: TimelineBarProps) => {
   const renderTimeline = () => {
     let elements = [];
     for (let i = 1; i < span; i++) {
       elements.push(
-        <div className="relative h-56 ml-3 border-r border-black first:border-t last:border-b dark:border-white">
-          {i === 1 &&
+        <div
+          key={"timeline-" + i}
+          className="relative h-56 ml-3 border-r border-black first:border-t last:border-b dark:border-white"
+        >
+          {i === 1 && (
             <>
               <CalendarDaysIcon
                 height={24}
@@ -22,8 +25,8 @@ export const TimelineBar = ({ startYear, endYear, span }: TimelineBarProps) => {
                 {endYear}
               </h5>
             </>
-          }
-          {i === span - 1 &&
+          )}
+          {i === span - 1 && (
             <>
               <CalendarDaysIcon
                 height={24}
@@ -34,20 +37,18 @@ export const TimelineBar = ({ startYear, endYear, span }: TimelineBarProps) => {
                 {startYear}
               </h5>
             </>
-          }
+          )}
         </div>
       );
     }
     return elements;
-  }
+  };
   return (
     <div
       className="flex flex-col w-5 pr-6 transition-all duration-300 ease-in delay-100 cursor-default pt-28 md:pr-8 hover:w-24 group"
       style={{ writingMode: "vertical-lr" }}
     >
-      <div className="flex w-full">
-        {renderTimeline()}
-      </div>
+      <div className="flex w-full">{renderTimeline()}</div>
     </div>
   );
-}
+};

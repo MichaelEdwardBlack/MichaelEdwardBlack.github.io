@@ -14,7 +14,9 @@ export const GithubIcon = ({
       width={width.toString()}
       height={height.toString()}
       opacity={opacity ? opacity : 1}
-      className={`${className ? className : ""} fill-slate-900`}
+      className={`${
+        className ? className : ""
+      } fill-slate-900 dark:fill-slate-100`}
     >
       <motion.path
         fillRule="evenodd"

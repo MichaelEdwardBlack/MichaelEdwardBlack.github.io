@@ -39,14 +39,26 @@ export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
   return (
     <motion.div
       variants={variants.card}
-      className="flex flex-col w-full h-48 p-4 overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700"
+      className="flex flex-col w-full h-48 p-4 bg-gray-200 rounded-lg shadow-lg dark:bg-gray-700"
     >
-      <motion.div className="flex gap-1 text-sm font-semibold" variants={variants.sentence}>
+      <motion.div
+        className="flex gap-1 text-sm font-semibold overflow-x-clip"
+        variants={variants.sentence}
+      >
         {chips?.map((chip, i) => (
-          <div key={chip + i} className="px-2 py-1 rounded-full shadow bg-secondary-500">{chip}</div>
+          <div
+            key={chip + i}
+            className="px-2 py-1 rounded-full shadow bg-secondary-500"
+          >
+            {chip}
+          </div>
         ))}
       </motion.div>
-      <motion.div className="h-full" variants={variants.sentence}>
+
+      <motion.div
+        className="line-clamp-3 overflow-ellipsis"
+        variants={variants.sentence}
+      >
         {text.split(" ").map((word, i) => (
           <motion.span
             key={word + i}
@@ -61,9 +73,8 @@ export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
           </motion.span>
         ))}
       </motion.div>
-      <div className="self-end">
-        {link}
-      </div>
+
+      <div className="self-end mt-auto mb-0">{link}</div>
     </motion.div>
   );
 };

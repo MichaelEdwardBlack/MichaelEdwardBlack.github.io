@@ -18,8 +18,8 @@ const variants = {
 
 export const PicoLabs = () => {
   return (
-    <div className="flex flex-col items-center w-full gap-2 pl-6 md:gap-8 md:pl-8">
-      <div className="grid w-full grid-cols-1 gap-4 justify-items-center md:grid-cols-4">
+    <div className="flex flex-col items-center gap-2 pl-6 md:gap-8 md:pl-8">
+      <div className="grid grid-cols-1 gap-4 justify-items-center md:grid-cols-4">
         <div className="relative">
           <h3 className="text-secondary-500">PicoLabs - UT</h3>
           <CloudIcon
@@ -28,9 +28,9 @@ export const PicoLabs = () => {
             className="sticky top-12 text-secondary-500"
           />
         </div>
-        <div className="flex w-full col-span-3">
+        <div className="flex col-span-3">
           <motion.div
-            className="flex flex-col w-full gap-4 text-lg"
+            className="flex flex-col gap-4 text-lg"
             variants={variants.cards}
           >
             <ResumeCard

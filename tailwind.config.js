@@ -50,8 +50,12 @@ export const variants = {
 export const plugins = [];
 export const safelist = [
   {
+    pattern: /(top|bottom|left|right)-*/,
+    variants: ["before", "after"]
+  },
+  {
     pattern:
-      /(bg|text|border)-(primary|secondary|warning|danger|green|blue|red)-(50|100|200|300|400|500|600|700|800|900)/,
+      /(bg|text|border)-(primary|secondary|warning|danger|green|blue|red|gray)-(50|100|200|300|400|500|600|700|800|900)/,
     variants: ["hover"],
   },
 ];

@@ -44,7 +44,7 @@ export const Home = () => {
             className="w-48"
             onClick={() => navigate("/blog")}
           >
-            Blog
+            Contact Me
           </Button>
         </motion.div>
       </div>

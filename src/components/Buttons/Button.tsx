@@ -28,7 +28,7 @@ export const Button = ({
   if (props.disabled) {
     color = "gray";
     classArray.push(
-      "bg-opacity-50 pointer-events-none text-opacity-50 text-gray-500 dark:text-gray-300 border-gray-500"
+      "bg-opacity-50 pointer-events-none text-opacity-50 text-gray-200 border-gray-500"
     );
   }
   const defaultClass = `bg-${color}-500 hover:bg-${color}-600 text-white rounded-full`;

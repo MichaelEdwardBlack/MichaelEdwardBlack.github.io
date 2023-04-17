@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { animations } from "../../constants/Animations";
 import { Trinsic } from "./Trinsic";
-// import { PicoLabs } from "./PicoLabs";
+import { PicoLabs } from "./PicoLabs";
 
 const variants = {
   hidden: animations.hidden,
@@ -18,10 +18,9 @@ export const Resume = () => {
       exit="hidden"
     >
       <h1>Resume</h1>
-      <h1>Resume</h1>
       <Trinsic />
-      {/* <hr className="h-2 m-16 bg-gray-800 dark:bg-gray-200" />
-      <PicoLabs /> */}
+      <hr className="w-full h-2 m-16 bg-gray-800 dark:bg-gray-200" />
+      <PicoLabs />
     </motion.div>
   );
 };

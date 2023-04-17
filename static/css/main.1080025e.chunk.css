@@ -1,2 +1,0 @@
-.toggle__input:checked~.toggle__dot{transform:translateX(100%)}h1,h2,h3,h4,h5,h6{margin:2rem 0}ol,p,ul{margin:1rem 0}ul{list-style:disc outside none}ol{list-style:decimal outside none}li>ul,ol{margin:0 1rem}blockquote,div,h1,h3,h4,h5,h6,li,ol,p,ul{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:1s}
-/*# sourceMappingURL=main.1080025e.chunk.css.map */

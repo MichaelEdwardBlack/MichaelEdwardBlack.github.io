@@ -6,7 +6,7 @@ export const Footer = () => {
     <div className="grid grid-cols-3 gap-4 py-4 bg-gray-200 justify-items-center dark:bg-gray-900">
       <div className="flex flex-col items-center gap-4 text-secondary-500">
         <h6 className="text-primary-500">Navigation</h6>
-        <a className="cursor-pointer hover:underline" href="/home">
+        <a className="cursor-pointer hover:underline" href="/">
           Home
         </a>
         <a className="cursor-pointer hover:underline" href="/resume">

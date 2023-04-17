@@ -1,6 +1,6 @@
 import { colors } from "tailwindcss/defaultTheme";
 
-export const purge = ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"];
+export const content = ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"];
 export const darkMode = "class";
 export const theme = {
   extend: {
@@ -51,7 +51,7 @@ export const plugins = [];
 export const safelist = [
   {
     pattern: /(top|bottom|left|right)-*/,
-    variants: ["before", "after"]
+    variants: ["before", "after"],
   },
   {
     pattern:

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { animations } from "../constants/Animations";
 import { Button } from "../components/Buttons";
+import { GamingPCSetupIcon } from "../components/AnimatedIcons/GamingPCSetup";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export const Home = () => {
 
       <div className="h-64 py-16 text-white mt-44 skew-y-2 bg-secondary-500">
         <div className="grid grid-cols-2 -skew-y-2">
-          <div>This is where an interactive image will go</div>
+          <div><GamingPCSetupIcon /></div>
           <div>This is where my skill set will go</div>
         </div>
       </div>

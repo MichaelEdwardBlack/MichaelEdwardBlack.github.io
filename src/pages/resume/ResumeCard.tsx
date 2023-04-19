@@ -39,7 +39,7 @@ export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
   return (
     <motion.div
       variants={variants.card}
-      className="flex flex-col w-full gap-2 p-4 bg-gray-200 rounded-lg shadow-lg h-52 dark:bg-gray-700"
+      className="flex flex-col w-full gap-2 p-4 rounded-lg shadow-lg to-gray-300 from-gray-100 bg-gradient-to-br h-52 dark:shadow-gray-900 dark:from-gray-700 dark:to-gray-900"
     >
       <motion.div
         className="flex gap-1 text-sm font-semibold whitespace-nowrap overflow-x-clip"

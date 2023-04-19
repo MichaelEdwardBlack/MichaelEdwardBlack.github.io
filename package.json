@@ -27,7 +27,6 @@
   },
   "scripts": {
     "start": "node pre-build.js && react-scripts start",
-    "tailwind": "postcss src/assets/tailwind.css -o public/tailwind.css",
     "build": "node pre-build.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -51,6 +50,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.0",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^5.0.0"
   }
 }

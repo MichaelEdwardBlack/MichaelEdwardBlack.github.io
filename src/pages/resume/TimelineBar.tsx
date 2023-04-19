@@ -19,9 +19,9 @@ export const TimelineBar = ({ startYear, endYear, span }: TimelineBarProps) => {
               <CalendarDaysIcon
                 height={24}
                 width={24}
-                className="absolute transition-transform duration-300 ease-in delay-100 bg-gray-200 group-hover:rotate-90 -top-3 -right-3 dark:bg-gray-800"
+                className="absolute transition-transform duration-300 ease-in delay-100 bg-gray-100 group-hover:rotate-90 -top-3 -right-3 dark:bg-gray-800"
               />
-              <h5 className="absolute transition-all duration-200 ease-in-out delay-200 bg-gray-200 group-hover:z-0 -z-50 -left-3 -top-6 dark:bg-gray-800">
+              <h5 className="absolute transition-all duration-200 ease-in-out delay-200 bg-gray-100 group-hover:z-0 -z-50 -left-3 -top-6 dark:bg-gray-800">
                 {endYear}
               </h5>
             </>
@@ -31,9 +31,9 @@ export const TimelineBar = ({ startYear, endYear, span }: TimelineBarProps) => {
               <CalendarDaysIcon
                 height={24}
                 width={24}
-                className="absolute transition-transform duration-300 ease-in delay-100 bg-gray-200 group-hover:rotate-90 -bottom-3 -right-3 dark:bg-gray-800"
+                className="absolute transition-transform duration-300 ease-in delay-100 bg-gray-100 group-hover:rotate-90 -bottom-3 -right-3 dark:bg-gray-800"
               />
-              <h5 className="absolute transition-all duration-200 ease-in-out delay-200 bg-gray-200 group-hover:z-0 -z-50 -left-3 -bottom-6 dark:bg-gray-800">
+              <h5 className="absolute transition-all duration-200 ease-in-out delay-200 bg-gray-100 group-hover:z-0 -z-50 -left-3 -bottom-6 dark:bg-gray-800">
                 {startYear}
               </h5>
             </>

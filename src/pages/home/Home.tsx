@@ -1,11 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { animations } from "../constants/Animations";
-import { Button } from "../components/Buttons";
-import { GamingPCSetupIcon } from "../components/AnimatedIcons/GamingPCSetup";
+import { animations } from "../../constants/Animations";
+import { Button } from "../../components/Buttons";
+import {
+  GamingPCSetupIcon,
+  Group,
+} from "../../components/AnimatedIcons/GamingPCSetup";
+import { useState } from "react";
+import { SkillSetCarousel } from "./SkillSetCarousel";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const [selectedSkillSet, setSelectedSkillSet] = useState(0);
+
+  const onSelectGroup = (group: Group) => {
+    switch (group) {
+      case "Monitor":
+        setSelectedSkillSet(1);
+        break;
+      case "MnK":
+        setSelectedSkillSet(2);
+        break;
+      case "Pc":
+        setSelectedSkillSet(3);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div className="flex flex-col pt-32 text-center transition-colors duration-700 ease-in-out">
       <motion.div
@@ -55,10 +77,16 @@ export const Home = () => {
         </motion.div>
       </div>
 
-      <div className="h-64 py-16 text-white mt-44 skew-y-2 bg-secondary-500">
+      <div className="py-16 text-white mt-44 skew-y-2 bg-secondary-500">
         <div className="grid grid-cols-2 -skew-y-2">
-          <div><GamingPCSetupIcon /></div>
-          <div>This is where my skill set will go</div>
+          <div className="flex justify-end">
+            <GamingPCSetupIcon
+              height={600}
+              width={600}
+              onGroupSelect={onSelectGroup}
+            />
+          </div>
+          <SkillSetCarousel skillSet={selectedSkillSet} />
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home/Home";
 import { useRecoilValue } from "recoil";
 import { themeState } from "./atoms/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

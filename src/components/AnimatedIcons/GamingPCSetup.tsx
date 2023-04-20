@@ -1,8 +1,15 @@
-import { useState } from "react";
 import { IconProps } from "./types";
 
-export type Group = "" | "MnK" | "Monitor" | "Pc";
+export enum Group {
+  "None" = 0,
+  "Monitor" = 1,
+  "Pc" = 2,
+  "MnK" = 3
+}
+
+
 interface GamingPCSetupIconProps extends IconProps {
+  group?: Group;
   onGroupSelect?: (group: Group) => void;
 }
 export const GamingPCSetupIcon = ({
@@ -10,12 +17,10 @@ export const GamingPCSetupIcon = ({
   width,
   opacity,
   className,
+  group,
   onGroupSelect,
 }: GamingPCSetupIconProps) => {
-  const [selectedGroup, setSelectedGroup] = useState<Group>("");
-
   const setGroup = (group: Group) => {
-    setSelectedGroup(group);
     if (onGroupSelect) {
       onGroupSelect(group);
     }
@@ -25,9 +30,9 @@ export const GamingPCSetupIcon = ({
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
       textRendering="geometricPrecision"
-      viewBox="0 0 1200 800"
-      width={width.toString()}
-      height={height.toString()}
+      viewBox="0 0 1100 800"
+      width={width}
+      height={height}
       opacity={opacity ? opacity : 1}
       className={`${className ? className : ""}`}
     >
@@ -75,10 +80,9 @@ export const GamingPCSetupIcon = ({
 
       <g
         id="MnK"
-        className={`cursor-pointer stroke-current ${
-          selectedGroup === "MnK" ? "fill-primary-500" : "fill-transparent"
-        }`}
-        onClick={() => setGroup("MnK")}
+        className={`cursor-pointer stroke-current ${group === Group.MnK ? "fill-primary-500" : "fill-transparent"
+          }`}
+        onClick={() => setGroup(Group.MnK)}
       >
         <g
           strokeLinecap="round"
@@ -710,11 +714,10 @@ export const GamingPCSetupIcon = ({
 
       <g
         id="Monitor"
-        className={`cursor-pointer stroke-current ${
-          selectedGroup === "Monitor" ? "fill-primary-500" : "fill-transparent"
-        }`}
+        className={`cursor-pointer stroke-current ${group === Group.Monitor ? "fill-primary-500" : "fill-transparent"
+          }`}
         transform="translate(-180 -30)"
-        onClick={() => setGroup("Monitor")}
+        onClick={() => setGroup(Group.Monitor)}
       >
         <rect
           width="640"
@@ -840,10 +843,9 @@ export const GamingPCSetupIcon = ({
         id="Pc"
         stroke="currentColor"
         transform="translate(-20 -165)"
-        className={`cursor-pointer stroke-current ${
-          selectedGroup === "Pc" ? "fill-primary-500" : "fill-transparent"
-        }`}
-        onClick={() => setGroup("Pc")}
+        className={`cursor-pointer stroke-current ${group === Group.Pc ? "fill-primary-500" : "fill-transparent"
+          }`}
+        onClick={() => setGroup(Group.Pc)}
       >
         <rect
           width="280"

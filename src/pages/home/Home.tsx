@@ -4,32 +4,24 @@ import { animations } from "../../constants/Animations";
 import { Button } from "../../components/Buttons";
 import {
   GamingPCSetupIcon,
-  Group,
 } from "../../components/AnimatedIcons/GamingPCSetup";
 import { useState } from "react";
-import { SkillSetCarousel } from "./SkillSetCarousel";
+import { Carousel } from "../../components/Carousel";
+import { SkillSets } from "./SkillSets";
 
 export const Home = () => {
   const navigate = useNavigate();
   const [selectedSkillSet, setSelectedSkillSet] = useState(0);
+  const [direction, setDirection] = useState(1);
 
-  const onSelectGroup = (group: Group) => {
-    switch (group) {
-      case "Monitor":
-        setSelectedSkillSet(1);
-        break;
-      case "MnK":
-        setSelectedSkillSet(2);
-        break;
-      case "Pc":
-        setSelectedSkillSet(3);
-        break;
-      default:
-        break;
-    }
-  };
+  const selectSkillSetAndScroll = (group: number) => {
+    setSelectedSkillSet(group);
+    document
+      .querySelector("#skills")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" })
+  }
   return (
-    <div className="flex flex-col pt-32 text-center transition-colors duration-700 ease-in-out">
+    <div className="flex flex-col pt-32 transition-colors duration-700 ease-in-out">
       <motion.div
         className="flex flex-col text-center"
         variants={animations.slideInFromBottom}
@@ -78,15 +70,18 @@ export const Home = () => {
       </div>
 
       <div className="py-16 text-white mt-44 skew-y-2 bg-secondary-500">
-        <div className="grid grid-cols-2 -skew-y-2">
-          <div className="flex justify-end">
-            <GamingPCSetupIcon
-              height={600}
-              width={600}
-              onGroupSelect={onSelectGroup}
-            />
-          </div>
-          <SkillSetCarousel skillSet={selectedSkillSet} />
+        <div className="grid grid-cols-1 gap-2 px-4 -skew-y-2 md:grid-cols-2">
+          <GamingPCSetupIcon
+            group={selectedSkillSet}
+            onGroupSelect={selectSkillSetAndScroll}
+          />
+          <Carousel
+            id="skills"
+            currentPage={selectedSkillSet}
+            direction={direction}
+            onChange={(newPage, newDirection) => { setSelectedSkillSet(newPage); setDirection(newDirection) }}
+            pages={SkillSets}
+          />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 export interface IconProps {
-  height: number;
-  width: number;
+  height?: string | number;
+  width?: string | number;
   opacity?: number;
   className?: string;
 }

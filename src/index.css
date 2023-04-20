@@ -30,7 +30,24 @@ h6 {
 }
 
 blockquote {
-  @apply bg-opacity-50 border-l-4 border-primary-400 text-xl p-2
+  @apply bg-opacity-50 border-l-4 border-primary-500 text-xl p-2
+}
+
+.quote {
+  border:none;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.quote:before { 
+  content: open-quote;
+  font-weight: bold;
+  font-size: x-large;
+} 
+
+.quote:after { 
+  content: close-quote;
+  font-weight: bold;
+  font-size: x-large;
 }
 
 @media (min-width: 640px) {

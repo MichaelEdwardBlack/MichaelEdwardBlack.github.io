@@ -14,8 +14,8 @@ export const FingerPrintIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      width={width.toString()}
-      height={height.toString()}
+      width={width}
+      height={height}
       opacity={opacity ? opacity : 1}
       className={`${className ? className : ""}`}
     >

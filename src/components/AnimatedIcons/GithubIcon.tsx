@@ -11,12 +11,11 @@ export const GithubIcon = ({
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      width={width.toString()}
-      height={height.toString()}
+      width={width}
+      height={height}
       opacity={opacity ? opacity : 1}
-      className={`${
-        className ? className : ""
-      } fill-slate-900 dark:fill-slate-100`}
+      className={`${className ? className : ""
+        } fill-slate-900 dark:fill-slate-100`}
     >
       <motion.path
         fillRule="evenodd"

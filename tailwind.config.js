@@ -30,7 +30,7 @@ export const theme = {
         900: "#005b39",
       },
       warning: {
-        ...colors.yellow,
+        ...colors.orange,
       },
       danger: {
         ...colors.red,

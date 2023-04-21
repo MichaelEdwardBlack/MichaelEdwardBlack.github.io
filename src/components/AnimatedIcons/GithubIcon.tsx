@@ -7,6 +7,10 @@ export const GithubIcon = ({
   opacity,
   className,
 }: IconProps) => {
+  let classArray = ["fill-slate-900", "dark:fill-slate-100", className];
+  if (className?.includes("fill")) {
+    classArray = [className];
+  }
   return (
     <svg
       viewBox="0 0 24 24"
@@ -14,8 +18,7 @@ export const GithubIcon = ({
       width={width}
       height={height}
       opacity={opacity ? opacity : 1}
-      className={`${className ? className : ""
-        } fill-slate-900 dark:fill-slate-100`}
+      className={classArray.join(" ")}
     >
       <motion.path
         fillRule="evenodd"

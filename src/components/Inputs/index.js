@@ -1,3 +1,3 @@
-export * from './SearchBar';
-export * from './TextInput';
-export * from './DynamicInput';
+export * from "./SearchBar";
+export * from "./Input";
+export * from "./DynamicInput";

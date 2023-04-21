@@ -2,12 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { animations } from "../../constants/Animations";
 import { Button } from "../../components/Buttons";
-import {
-  GamingPCSetupIcon,
-} from "../../components/AnimatedIcons/GamingPCSetup";
+import { GamingPCSetupIcon } from "../../components/AnimatedIcons/GamingPCSetup";
 import { useState } from "react";
 import { Carousel } from "../../components/Carousel";
 import { SkillSets } from "./SkillSets";
+import { ContactMe } from "./ContactMe";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -18,8 +17,8 @@ export const Home = () => {
     setSelectedSkillSet(group);
     document
       .querySelector("#skills")
-      ?.scrollIntoView({ behavior: "smooth", block: "center" })
-  }
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
   return (
     <div className="flex flex-col pt-32 transition-colors duration-700 ease-in-out">
       <motion.div
@@ -69,8 +68,8 @@ export const Home = () => {
         </motion.div>
       </div>
 
-      <div className="py-16 text-white mt-44 skew-y-2 bg-secondary-500">
-        <div className="grid grid-cols-1 gap-2 px-4 -skew-y-2 md:grid-cols-2">
+      <div className="py-32 text-white skew-y-6 mt-44 bg-secondary-500">
+        <div className="grid grid-cols-1 gap-24 px-4 -skew-y-6 md:gap-8 md:grid-cols-2">
           <GamingPCSetupIcon
             group={selectedSkillSet}
             onGroupSelect={selectSkillSetAndScroll}
@@ -79,14 +78,17 @@ export const Home = () => {
             id="skills"
             currentPage={selectedSkillSet}
             direction={direction}
-            onChange={(newPage, newDirection) => { setSelectedSkillSet(newPage); setDirection(newDirection) }}
+            onChange={(newPage, newDirection) => {
+              setSelectedSkillSet(newPage);
+              setDirection(newDirection);
+            }}
             pages={SkillSets}
           />
         </div>
       </div>
 
-      <div className="h-64 py-16" id="contact">
-        <div>This is where my contact page will go</div>
+      <div className="flex justify-center px-2 py-24" id="contact">
+        <ContactMe />
       </div>
     </div>
   );

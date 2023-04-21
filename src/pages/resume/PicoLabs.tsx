@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { ResumeCard } from "./ResumeCard";
-import { Button } from "../../components/Buttons";
 import { CloudIcon } from "../../components/AnimatedIcons/CloudIcon";
 import { TimelineBar } from "./TimelineBar";
+import { WrenchScrewdriverIcon } from "@heroicons/react/24/outline";
+import { GithubIcon } from "../../components/AnimatedIcons/GithubIcon";
 
 const variants = {
   cards: {
@@ -36,28 +37,16 @@ export const PicoLabs = () => {
           <ResumeCard
             text="Published production-level applications used by 100s of users allowing people to digitize and shadow real life things as IoT devices"
             chips={["React", "KRL", "Node", "IoT"]}
-            link={
-              <Button
-                onClick={() =>
-                  window.open("https://manifold.picolabs.io/#/login", "_blank")
-                }
-              >
-                See Project
-              </Button>
-            }
+            link="https://manifold.picolabs.io/#/login"
+            linkLabel="See Project"
+            linkIcon={<WrenchScrewdriverIcon />}
           ></ResumeCard>
           <ResumeCard
             chips={["Node", "Language Processing", "TCP", "Telnet", "SMTP"]}
             text="Enabled email and telnet compatibility to the pico engine"
-            link={
-              <Button
-                onClick={() =>
-                  window.open("https://www.farmerconnect.com", "_blank")
-                }
-              >
-                Source Code
-              </Button>
-            }
+            link="https://www.farmerconnect.com"
+            linkLabel="Source Code"
+            linkIcon={<GithubIcon className="fill-primary-500" />}
           ></ResumeCard>
           <ResumeCard
             chips={["Node", "KRL", "IoT"]}

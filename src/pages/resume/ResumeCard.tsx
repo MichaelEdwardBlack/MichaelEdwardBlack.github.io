@@ -31,29 +31,37 @@ const hasNumber = (aString: string) => {
 
 interface ResumeCardProps {
   text: string;
-  link?: React.ReactNode;
+  link?: string;
+  linkIcon?: React.ReactNode;
+  linkLabel?: string;
   chips?: string[];
 }
 
-export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
+export const ResumeCard = ({
+  text,
+  link,
+  chips,
+  linkLabel,
+  linkIcon,
+}: ResumeCardProps) => {
   return (
     <motion.div
       variants={variants.card}
-      className="flex flex-col w-full gap-2 p-4 rounded-lg shadow-lg to-gray-300 from-gray-100 bg-gradient-to-br h-52 dark:shadow-gray-900 dark:from-gray-700 dark:to-gray-900"
+      className="flex flex-col w-full max-w-4xl gap-2 p-4 rounded-lg shadow-lg to-gray-300 from-gray-100 bg-gradient-to-br h-52 dark:shadow-gray-900 dark:from-gray-700 dark:to-gray-900"
     >
-      <motion.div
-        className="flex gap-1 text-sm font-semibold whitespace-nowrap overflow-x-clip"
-        variants={variants.sentence}
+      <a
+        className="flex items-center self-end gap-2 text-primary-500 group"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
       >
-        {chips?.map((chip, i) => (
-          <div
-            key={chip + i}
-            className="px-2 py-1 rounded-full shadow bg-secondary-500"
-          >
-            {chip}
-          </div>
-        ))}
-      </motion.div>
+        <span className="transition duration-500 translate-x-4 opacity-0 whitespace-nowrap group-hover:translate-x-0 group-hover:opacity-100">
+          {linkLabel}
+        </span>
+        <div className="w-8 h-8 transition-transform duration-200 group-hover:scale-110">
+          {linkIcon}
+        </div>
+      </a>
 
       <motion.div
         className="line-clamp-3 overflow-ellipsis"
@@ -74,7 +82,19 @@ export const ResumeCard = ({ text, link, chips }: ResumeCardProps) => {
         ))}
       </motion.div>
 
-      <div className="self-end mt-auto mb-0">{link}</div>
+      <motion.div
+        className="flex gap-1 mt-auto mb-0 text-sm font-semibold whitespace-nowrap overflow-x-clip"
+        variants={variants.sentence}
+      >
+        {chips?.map((chip, i) => (
+          <div
+            key={chip + i}
+            className="px-2 py-1 rounded-full shadow bg-secondary-500"
+          >
+            {chip}
+          </div>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };

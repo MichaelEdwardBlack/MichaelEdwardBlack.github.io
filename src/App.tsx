@@ -1,11 +1,10 @@
 import { HashRouter as Router, Route } from "react-router-dom";
 import { MoonIcon, Navbar, NavbarItem, NavbarLink, NavbarList, NavbarLogo, SunIcon, ToggleButton } from "./components";
-import Home from "./pages/Home";
-import Portfolio from "./pages/portfolio";
-import Picolabs from "./pages/portfolio/picolabs";
-import Trinsic from "./pages/portfolio/trinsic";
-import Blog from "./pages/blog";
-import BlogPost from "./pages/blog/BlogPost";
+import { Home } from "./pages/Home";
+import { Portfolio } from "./pages/portfolio";
+import { Picolabs } from "./pages/portfolio/picolabs";
+import { Trinsic } from "./pages/portfolio/trinsic";
+import { Blog, BlogPost } from "./pages/blog";
 import { Theme } from "./constants";
 import { themeState } from "./atoms/theme";
 import { useRecoilState } from "recoil";

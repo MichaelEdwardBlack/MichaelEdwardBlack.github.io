@@ -18,16 +18,143 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+h2 {
+  @apply text-4xl font-semibold;
+}
+h3 {
+  @apply text-3xl font-bold;
+}
+h4 {
+  @apply text-2xl font-semibold;
+}
+h5 {
+  @apply text-xl font-bold;
+}
+h6 {
+  @apply text-xl font-semibold;
+}
+
+.parallax {
+  /* Create the parallax scrolling effect - just add background-image: url(path/to/image); */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+blockquote {
+  @apply bg-opacity-50 border-l-4 border-primary-500 text-xl p-2;
+}
+
+.quote {
+  border: none;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.quote:before {
+  content: open-quote;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.quote:after {
+  content: close-quote;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  h4 {
+    @apply text-xl font-bold;
+  }
+  h5 {
+    @apply text-lg font-bold;
+  }
+  h6 {
+    @apply text-lg font-semibold;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    @apply text-5xl font-bold;
+  }
+  h2 {
+    @apply text-4xl font-bold;
+  }
+  h3 {
+    @apply text-3xl font-bold;
+  }
+  h4 {
+    @apply text-2xl font-bold;
+  }
+  h5 {
+    @apply text-xl font-bold;
+  }
+  h6 {
+    @apply text-lg font-bold;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    @apply text-6xl font-bold;
+  }
+  h2 {
+    @apply text-5xl font-bold;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+  h4 {
+    @apply text-3xl font-bold;
+  }
+  h5 {
+    @apply text-2xl font-semibold;
+  }
+  h6 {
+    @apply text-xl font-semibold;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    @apply text-6xl font-bold;
+  }
+  h2 {
+    @apply text-5xl font-bold;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+  h4 {
+    @apply text-3xl font-bold;
+  }
+  h5 {
+    @apply text-2xl font-bold;
+  }
+  h6 {
+    @apply text-xl font-bold;
   }
 }

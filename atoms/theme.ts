@@ -1,7 +1,12 @@
 import { atom } from "recoil";
-import { Theme } from "../constants";
+import { recoilPersist } from "recoil-persist";
 
-export const themeState = atom({
+const { persistAtom } = recoilPersist();
+
+type Theme = "dark" | "light";
+
+export const themeState = atom<Theme>({
   key: "themeState",
-  default: Theme.Light,
+  default: window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
+  effects_UNSTABLE: [persistAtom],
 });

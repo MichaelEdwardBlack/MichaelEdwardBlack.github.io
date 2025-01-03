@@ -7,6 +7,7 @@ import { NavigationBar } from "./components/NavigationBar";
 import { Resume } from "./pages/resume/Resume";
 import { Footer } from "./components/Footer";
 import { ToastProvider } from "./components/Toast";
+import { Greedy } from "./pages/greedy/Greedy";
 
 export const App = () => {
   const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ export const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/resume" element={<Resume />} />
+              <Route path="/greedy" element={<Greedy />} />
               <Route path="*" element={<div>Not Found!</div>} />
             </Routes>
             <Footer />

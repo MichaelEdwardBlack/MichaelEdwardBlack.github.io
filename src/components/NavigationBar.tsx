@@ -28,7 +28,7 @@ export const NavigationBar = () => {
         onClick={() => navigate("/")}
       >
         <img
-          src="/images/Blacklite.jpg"
+          src="/images/BlackliteLogo.png"
           height={36}
           width={36}
           className="rounded-full"

@@ -16,7 +16,7 @@ const variants = {
 const downloadFile = (filePath: string) => {
   let link = document.createElement("a");
   link.href = filePath;
-  link.download = filePath.substr(filePath.lastIndexOf("/") + 1);
+  link.download = filePath.substring(filePath.lastIndexOf("/") + 1);
   link.click();
 };
 

@@ -1,3 +1,4 @@
+import { DiceIcon } from "./AnimatedIcons/DiceIcon";
 import { GithubIcon } from "./AnimatedIcons/GithubIcon";
 import { FingerPrintIcon } from "@heroicons/react/24/solid";
 
@@ -34,6 +35,13 @@ export const Footer = () => {
           <FingerPrintIcon height={20} width={20} />
           <div>Trinsic</div>
         </div>
+        <a
+          href="/#/greedy"
+          className="flex items-center gap-2 cursor-pointer hover:text-secondary-500 hover:underline"
+        >
+          <DiceIcon height={20} width={20} />
+          <div>Greedy</div>
+        </a>
       </div>
     </div>
   );
